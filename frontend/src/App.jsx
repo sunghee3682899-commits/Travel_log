@@ -17,6 +17,7 @@ import Auth from './contents/user/SignUp';
 import Login from './contents/user/Login';
 // import Logout from './contents/user/Logout';
 import MyPage from './contents/user/MyPage';
+import PlaceList from './contents/place/PlaceListPage';
 import Footer from './components/common/Footer';
 
 import ScrollHandler from './components/common/ScrollHandler';
@@ -50,6 +51,8 @@ function App() {
       <Route path="/Login" element={<Login />}></Route>
       {/* <Route path="/Logout" element={<Logout />}></Route> */}
       <Route path="/MyPage" element={<MyPage />}></Route>
+      <Route path="/PlaceList" element={<PlaceList/>}></Route>
+
     </Routes>
 
     {/* footer */}
