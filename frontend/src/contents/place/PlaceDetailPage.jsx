@@ -1,18 +1,25 @@
-import React from 'react'
+import React,{ useEffect } from 'react'
 import './PlaceDetailPage.css'
+import { initHeartButtons, initDetailButtons } from './PlaceDetail'
+
 
 const PlaceDetailPage = () => {
+    useEffect(() => {
+    // DOM 렌더 끝난 뒤 실행
+    initHeartButtons()
+    initDetailButtons()
+  }, [])
     return (
-        <div class="spg-wrap">
-            <div class="spg-top">
-                <img src="/images/placedetail/snoopy1.jpg" alt="snoopy" class="spg-header-image" />
+        <div className="spg-wrap">
+            <div className="spg-top">
+                <img src="/images/placedetail/snoopy1.jpg" alt="snoopy" className="spg-header-image" />
             </div>
-            <div class="spg-content">
-                <h1 class="spg-jeju-title">JEJU</h1>
-                <div class="sec1">
-                    <div class="text">
-                        <h2 class="spg-subplace-title">스누피 가든</h2>
-                        <p class="spg-subplace2-title">
+            <div className="spg-content">
+                <h1 className="spg-jeju-title">JEJU</h1>
+                <div className="sec1">
+                    <div className="PDtext">
+                        <h2 className="spg-subplace-title">스누피 가든</h2>
+                        <p className="spg-subplace2-title">
                             Snoopy Garden(스누피 가든)은 제주 구좌읍에 있는 피너츠(Peanuts) 만화 캐릭터 스누피와 친구들을 테마로 꾸민 체험형 정원형 관광지입니다. 제주의 자연 속에서
                             스누피의 세계를 느끼며 산책하고 즐길 수 있는 공간이에요.
                             실내 공간은 '관계', '일상', '휴식', '행복', '상상' 등 다섯 가지 주제로 나뉘어 피너츠 만화 에피소드를 전시하고, 야외 정원에는 만화 속 장면을 재현한 조형물과 다양한
@@ -20,141 +27,141 @@ const PlaceDetailPage = () => {
                             또한 카페와 스누피 관련 굿즈를 판매하는 기념품 샵이 있어 가족, 연인, 친구 여행객 모두에게 인기 있는 관광 코스입니다. 약 2~3시간 정도 여유를 두고 둘러보는 것을
                             추천합니다. </p>
                     </div>
-                    <div class="image">
-                        <img src="/images/placedetail/snoopy2.jpg" alt="snoopy" class="spg-subheader-image" />
-                            <img src="/images/placedetail/snoopy3.jpg" alt="snoopy" class="spg-subsmall-image-1"
-                                onclick="changeImage('/images/placedetail/snoopy3.jpg')" />
-                                <img src="/images/placedetail/snoopy4.jpg" alt="snoopy" class="spg-subsmall-image-2"
-                                    onclick="changeImage('/images/placedetail/snoopy4.jpg')" />
-                                    <img src="/images/placedetail/snoopy5.jpg" alt="snoopy" class="spg-subsmall-image-3"
-                                        onclick="changeImage('/images/placedetail/snoopy5.jpg')" />
-                                    </div>
-                                </div>
-                                <div class="sec3">
-                                    <div class="add-place-btn" onclick="location.href='추가할페이지.html'">
-                                        <img src="/images/common/p.png" alt="추가" />
-                                    </div>
-                                    <h3 class="spg-places-title">Things you can enjoy at this place</h3>
-                                    <div class="spg-image-box-container">
-                                        <div class="spg-box-wrapper">
-                                            <img src="/images/placedetail/snoopy2.jpg" alt="장소1" class="spg-image-box-1" />
-                                                <div class="spg-text-box-container" >
-                                                    <h4 class="spg-text-large" >관계</h4>
-                                                    <p class="spg-text-small" >"연 먹는 나무" 주변을 둘러싼 피너츠 친구들과
-                                                        만화가 슐츠를 만나 볼 수 있는 곳입니다</p>
-                                                </div>
-                                        </div>
-                                        <div class="spg-box-wrapper" >
-                                            <img src="/images/placedetail/snoopy3.jpg" alt="장소2" class="spg-image-box-2" />
-                                                <div class="spg-text-box-container">
-                                                    <h4 class="spg-text-large">일상</h4>
-                                                    <p class="spg-text-small">피너츠 친구들의 일상에서 일어나는 인생 이야기를 담은
-                                                        에피소드들이 전시된 곳인데 아이와 함께 즐겁게 관람할 수 있습니다</p>
-                                                </div>
-                                        </div>
-                                        <div class="spg-box-wrapper">
-                                            <img src="/images/placedetail/snoopy4.jpg" alt="장소3" class="spg-image-box-3" />
-                                                <div class="spg-text-box-container">
-                                                    <h4 class="spg-text-large">카페 스누피</h4>
-                                                    <p class="spg-text-small">내부에 위치한 카페 스누피는 피자와 샌드위치, 오므라이스등 간편한 식사를 할 수가 있습니다</p>
-                                                </div>
-                                        </div>
-                                    </div>
-                                </div>
+                    <div className="image">
+                        <img src="/images/placedetail/snoopy2.jpg" alt="snoopy" className="spg-subheader-image" />
+                        <img src="/images/placedetail/snoopy3.jpg" alt="snoopy" className="spg-subsmall-image-1"
+                            onclick="changeImage('/images/placedetail/snoopy3.jpg')" />
+                        <img src="/images/placedetail/snoopy4.jpg" alt="snoopy" className="spg-subsmall-image-2"
+                            onclick="changeImage('/images/placedetail/snoopy4.jpg')" />
+                        <img src="/images/placedetail/snoopy5.jpg" alt="snoopy" className="spg-subsmall-image-3"
+                            onclick="changeImage('/images/placedetail/snoopy5.jpg')" />
+                    </div>
+                </div>
+                <div className="sec3">
+                    <div className="add-place-btn" onclick="location.href='추가할페이지.html'">
+                        <img src="/images/common/p.png" alt="추가" />
+                    </div>
+                    <h3 className="spg-places-title">Things you can enjoy at this place</h3>
+                    <div className="spg-image-box-container">
+                        <div className="spg-box-wrapper">
+                            <img src="/images/placedetail/snoopy2.jpg" alt="장소1" className="spg-image-box-1" />
+                            <div className="spg-text-box-container" >
+                                <h4 className="spg-text-large" >관계</h4>
+                                <p className="spg-text-small" >"연 먹는 나무" 주변을 둘러싼 피너츠 친구들과
+                                    만화가 슐츠를 만나 볼 수 있는 곳입니다</p>
                             </div>
-                            <div class="sec5">
-                                <div class="slider-container">
-                                    <img src="/images/placedetail/snoopy4.jpg" alt="슬라이드1" class="spg-sublong-image active" />
-                                        <img src="/images/placedetail/snoopy3.jpg" alt="슬라이드2" class="spg-sublong-image" />
-                                            <img src="/images/placedetail/snoopy2.jpg" alt="슬라이드3" class="spg-sublong-image" />
+                        </div>
+                        <div className="spg-box-wrapper" >
+                            <img src="/images/placedetail/snoopy3.jpg" alt="장소2" className="spg-image-box-2" />
+                            <div className="spg-text-box-container">
+                                <h4 className="spg-text-large">일상</h4>
+                                <p className="spg-text-small">피너츠 친구들의 일상에서 일어나는 인생 이야기를 담은
+                                    에피소드들이 전시된 곳인데 아이와 함께 즐겁게 관람할 수 있습니다</p>
+                            </div>
+                        </div>
+                        <div className="spg-box-wrapper">
+                            <img src="/images/placedetail/snoopy4.jpg" alt="장소3" className="spg-image-box-3" />
+                            <div className="spg-text-box-container">
+                                <h4 className="spg-text-large">카페 스누피</h4>
+                                <p className="spg-text-small">내부에 위치한 카페 스누피는 피자와 샌드위치, 오므라이스등 간편한 식사를 할 수가 있습니다</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div className="sec5">
+                <div className="slider-container">
+                    <img src="/images/placedetail/snoopy4.jpg" alt="슬라이드1" className="spg-sublong-image active" />
+                    <img src="/images/placedetail/snoopy3.jpg" alt="슬라이드2" className="spg-sublong-image" />
+                    <img src="/images/placedetail/snoopy2.jpg" alt="슬라이드3" className="spg-sublong-image" />
 
-                                                <button class="slider-btn prev" onclick="changeSlide(-1)">&#10094;</button>
-                                                <button class="slider-btn next" onclick="changeSlide(1)">&#10095;</button>
+                    <button className="slider-btn prev" onclick="changeSlide(-1)">&#10094;</button>
+                    <button className="slider-btn next" onclick="changeSlide(1)">&#10095;</button>
 
-                                                <div class="slider-dots">
-                                                    <span class="dot active" onclick="currentSlide(1)"></span>
-                                                    <span class="dot" onclick="currentSlide(2)"></span>
-                                                    <span class="dot" onclick="currentSlide(3)"></span>
-                                                </div>
-                                            </div>
-                                        </div>
+                    <div className="slider-dots">
+                        <span className="dot active" onclick="currentSlide(1)"></span>
+                        <span className="dot" onclick="currentSlide(2)"></span>
+                        <span className="dot" onclick="currentSlide(3)"></span>
+                    </div>
+                </div>
+            </div>
 
 
-                                        <div class="sec4">
-                                            <iframe
-                                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3329.1959274316896!2d126.7757308762726!3d33.444201649590816!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x350d1bc32bdef82d%3A0x35c7b3cf574c06f5!2z7Iqk64iU7ZS86rCA65Og!5e0!3m2!1sko!2sus!4v1765953680091!5m2!1sko!2sus"
-                                                class="spg-map"
-                                                allowfullscreen=""
-                                                loading="lazy">
-                                            </iframe>
-                                            <p class="spg-map-description">찾아가는 길</p>
-                                        </div>
+            <div className="sec4">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3329.1959274316896!2d126.7757308762726!3d33.444201649590816!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x350d1bc32bdef82d%3A0x35c7b3cf574c06f5!2z7Iqk64iU7ZS86rCA65Og!5e0!3m2!1sko!2sus!4v1765953680091!5m2!1sko!2sus"
+                    className="spg-map"
+                    allowfullscreen=""
+                    loading="lazy">
+                </iframe>
+                <p className="spg-map-description">찾아가는 길</p>
+            </div>
 
-                                        <div class="shape-box">
-                                            <div class="recommended-container">
-                                                <h1 class="title">RECOMMENDED</h1>
-                                                <div class="item">
-                                                    <img src="/images/placedetail/snoopy1.jpg" alt="장소1" class="item-image" />
-                                                        <div class="item-content">
-                                                            <h2 class="item-title">Jeju</h2>
-                                                            <div class="item-details">
-                                                                <p>• 주소 : 제주특별자치도 제주시 구좌읍 금백조로 930</p>
-                                                                <p>• 휴일 : 연중무휴</p>
-                                                                <p>• 이용가능시설 : 카드 하우스 / 야외카드</p>
-                                                            </div>
-                                                        </div>
-                                                        <div class="item-actions">
-                                                            <span class="item-tag">성산일출봉</span>
-                                                            <button class="heart-btn">♡</button>
-                                                            <button class="detail-btn">상세 정보 보러가기</button>
-                                                        </div>
-                                                </div>
+            <div className="shape-box">
+                <div className="recommended-container">
+                    <h1 className="title">RECOMMENDED</h1>
+                    <div className="item">
+                        <img src="/images/placedetail/snoopy1.jpg" alt="장소1" className="item-image" />
+                        <div className="item-content">
+                            <h2 className="item-title">Jeju</h2>
+                            <div className="item-details">
+                                <p>• 주소 : 제주특별자치도 제주시 구좌읍 금백조로 930</p>
+                                <p>• 휴일 : 연중무휴</p>
+                                <p>• 이용가능시설 : 카드 하우스 / 야외카드</p>
+                            </div>
+                        </div>
+                        <div className="item-actions">
+                            <span className="item-tag">성산일출봉</span>
+                            <button className="heart-btn">♡</button>
+                            <button className="detail-btn">상세 정보 보러가기</button>
+                        </div>
+                    </div>
 
-                                                <div class="item">
-                                                    <img src="/images/placedetail/snoopy1.jpg" alt="장소2" class="item-image" />
-                                                        <div class="item-content">
-                                                            <h2 class="item-title">Jeju</h2>
-                                                            <div class="item-details">
-                                                                <p>• 주소 : 제주특별자치도 제주시 구좌읍 금백조로 930</p>
-                                                                <p>• 휴일 : 연중무휴</p>
-                                                                <p>• 이용가능시설 : 카드 하우스 / 야외카드</p>
-                                                            </div>
-                                                        </div>
-                                                        <div class="item-actions">
-                                                            <span class="item-tag">제주 4.3 평화 공원</span>
-                                                            <button class="heart-btn">♡</button>
-                                                            <button class="detail-btn">상세 정보 보러가기</button>
-                                                        </div>
-                                                </div>
+                    <div className="item">
+                        <img src="/images/placedetail/snoopy1.jpg" alt="장소2" className="item-image" />
+                        <div className="item-content">
+                            <h2 className="item-title">Jeju</h2>
+                            <div className="item-details">
+                                <p>• 주소 : 제주특별자치도 제주시 구좌읍 금백조로 930</p>
+                                <p>• 휴일 : 연중무휴</p>
+                                <p>• 이용가능시설 : 카드 하우스 / 야외카드</p>
+                            </div>
+                        </div>
+                        <div className="item-actions">
+                            <span className="item-tag">제주 4.3 평화 공원</span>
+                            <button className="heart-btn">♡</button>
+                            <button className="detail-btn">상세 정보 보러가기</button>
+                        </div>
+                    </div>
 
-                                                <div class="item">
-                                                    <img src="/images/placedetail/snoopy1.jpg" alt="장소3" class="item-image" />
-                                                        <div class="item-content">
-                                                            <h2 class="item-title">Jeju</h2>
-                                                            <div class="item-details">
-                                                                <p>• 주소 : 제주특별자치도 제주시 구좌읍 금백조로 930</p>
-                                                                <p>• 휴일 : 연중무휴</p>
-                                                                <p>• 이용가능시설 : 카드 하우스 / 야외카드</p>
-                                                            </div>
-                                                        </div>
-                                                        <div class="item-actions">
-                                                            <span class="item-tag">카멜리아 힐</span>
-                                                            <button class="heart-btn">♡</button>
-                                                            <button class="detail-btn">상세 정보 보러가기</button>
-                                                        </div>
-                                                </div>
+                    <div className="item">
+                        <img src="/images/placedetail/snoopy1.jpg" alt="장소3" className="item-image" />
+                        <div className="item-content">
+                            <h2 className="item-title">Jeju</h2>
+                            <div className="item-details">
+                                <p>• 주소 : 제주특별자치도 제주시 구좌읍 금백조로 930</p>
+                                <p>• 휴일 : 연중무휴</p>
+                                <p>• 이용가능시설 : 카드 하우스 / 야외카드</p>
+                            </div>
+                        </div>
+                        <div className="item-actions">
+                            <span className="item-tag">카멜리아 힐</span>
+                            <button className="heart-btn">♡</button>
+                            <button className="detail-btn">상세 정보 보러가기</button>
+                        </div>
+                    </div>
 
-                                                <div class="pagination">
-                                                    <button>&lt;&lt;</button>
-                                                    <button>&lt;</button>
-                                                    <button class="current">1</button>
-                                                    <button>&gt;</button>
-                                                    <button>&gt;&gt;</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                </div>
-                                )
+                    <div className="pagination">
+                        <button>&lt;&lt;</button>
+                        <button>&lt;</button>
+                        <button className="current">1</button>
+                        <button>&gt;</button>
+                        <button>&gt;&gt;</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    )
 }
 
-                                export default PlaceDetailPage
+export default PlaceDetailPage

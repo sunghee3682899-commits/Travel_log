@@ -22,8 +22,8 @@ return (
 
 
 <div className="section-search">
-<button>Search</button>
-<input placeholder="마음에 드는 여행지를 찾아보세요" />
+<button type="button" className="searchBtn">Search</button>
+<input className="searchInput" placeholder="마음에 드는 여행지를 찾아보세요" />
 </div>
 </section>
 
