@@ -31,6 +31,9 @@ const SignUp = () => {
   
   const [file, setFile] = useState('')
   const [view, setView] = useState('')
+  const API_BASE = 'http://localhost:5000'
+  const DEFAULT_IMG = `${API_BASE}/static/user_img/default.jpg`
+
 
   const handleFileChange = (e) => {
     const selected = e.target.files[0];
@@ -110,6 +113,11 @@ const handleSubmit = async (e) => {
     return;
   }
 
+  const formData = new FormData();
+  Object.entries(form).forEach(([KeyboardEvent, value])=>{
+    formData.append('profile_image', file)
+  })
+
   try {
     await signUp(form);
     alert('회원가입이 완료되었습니다.');
@@ -128,9 +136,9 @@ const handleSubmit = async (e) => {
         <div className="signup-profile">
           <div className="signup-profile-circle">
             {view ? (
-              <img src={view} alt='프로필 미리보기'/>
+              <img src={view || DEFAULT_IMG} alt='프로필 미리보기'/>
             ):(
-              <span className='signup-profile-preview' />
+              <span className='signup-profile-preview' ><img src={DEFAULT_IMG} alt="" /></span>
             )}
           </div>
           <label className="signup-profile-text"> 프로필 사진 추가 <input type='file' accept='image/*' onChange={handleFileChange}hidden /></label>
