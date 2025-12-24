@@ -1,27 +1,31 @@
 from dataclasses import field
-
 from flask import Blueprint, request, jsonify
-from pyexpat.errors import messages
 from werkzeug.security import generate_password_hash
-
 from main import db
 from main.models import User
+from main.schemas.user_schema import UserCreateSchema
+from main.schemas.login_schema import LoginSchema
+
 
 bp = Blueprint('auth', __name__)
+user = UserCreateSchema()
 
-@bp.route("/SignUp", methods=["GET","POST"])
+@bp.route("/signUp", methods=["GET","POST"])
 def signUp():
-    data = request.get_json()
-    print (data)
-    userid = data.get('userid')
-    password = data.get('password')
-    gender = data.get('gender')
-    email = data.get('email')
-    username = data.get('username')
-    phone = data.get('phone')
+    data = requset.form.to_dict()
+    errors = user.validate(data)
 
-    if not all([userid, password, gender, email, username, phone]):
-        return jsonify({'message':'필수 값 누락'})
+    if errors:
+        return jsonify({
+            'message' : "입력값 오류",
+            'errors' : errors
+        })
+    userid = data['userid']
+    password = data['password']
+    gender = data['gender']
+    email = data['email']
+    username = data['username']
+    phone = data['phone']
 
     if User.query.filter_by(userid=userid).first():
         return jsonify({'message': '이미 존재하는  아이디'})
@@ -34,6 +38,22 @@ def signUp():
 
     hashed_pw = generate_password_hash(password)
 
+    image = request.files.get("profile_image")
+
+    filename = secure_filename(image.filename)
+    ext = filename.rsplit('.', 1)[-1]
+
+    ALLOWED_EXT = {'png', 'jpg', 'jpeg', 'gif'}
+    if ext not in ALLOWED_EXT:
+        return jsonify({"message": "사용불가 이미지입니다."})
+    new_filename = f"{uuid.uuid4()}.{ext}"
+
+    upload_path = os.path.join(
+        current_app.root_path,
+        "static/user_img",
+        new_filename
+    )
+    image.save(upload_path)
     user = User(
         userid=userid,
         username=username,
