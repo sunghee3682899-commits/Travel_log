@@ -1,5 +1,4 @@
 /* 회원가입 페이지 */
-.signup-wrap {}
 .signup-wrap .signup-inner {display: flex; width: 100%; max-width: 1250px; margin: 0 auto;}
 .signup-wrap .signup-inner .signup-item {display: flex; flex-direction: column; align-items: center; justify-content: center; width: 50%; padding: 50px 0; background-color: #fff;}
 

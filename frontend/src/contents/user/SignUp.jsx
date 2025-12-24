@@ -28,7 +28,7 @@ const SignUp = () => {
     username: null,
     phone: null,
   });
-  
+
   const [file, setFile] = useState('')
   const [view, setView] = useState('')
   const API_BASE = 'http://localhost:5000'
@@ -114,7 +114,7 @@ const SignUp = () => {
     }
 
     const formData = new FormData();
-    Object.entries(form).forEach(([KeyboardEvent, value])=>{
+    Object.entries(form).forEach(([KeyboardEvent, value]) => {
       formData.append('profile_image', file)
     })
 
@@ -135,12 +135,12 @@ const SignUp = () => {
           <div className="profile">
             <div className="img-wrap">
               {view ? (
-                <img src={view || DEFAULT_IMG} alt='프로필 미리보기'/>
-              ):(
-                <span className='preview' ><img src={DEFAULT_IMG} alt="" /></span> 
+                <img src={view || DEFAULT_IMG} alt='프로필 미리보기' />
+              ) : (
+                <span className='preview' ><img src={DEFAULT_IMG} alt="" /></span>
               )}
             </div>
-            <label className="text"> 프로필 사진 추가 <input type='file' accept='image/*' onChange={handleFileChange}hidden /></label>
+            <label className="text"> 프로필 사진 추가 <input type='file' accept='image/*' onChange={handleFileChange} hidden /></label>
           </div>
           <form className="signup-form" onSubmit={handleSubmit}>
             <input
@@ -222,7 +222,6 @@ const SignUp = () => {
           </form>
 
           <a href="/Login" className="text">계정을 가지고 계십니까?</a>
-        </div>
         </div>
 
         <div className="bg-wrap"></div>
