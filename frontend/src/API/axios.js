@@ -1,10 +1,15 @@
-import axios from "axios" // axios 임포트 
+import axios from "axios";
 
 const apiClient = axios.create({
     baseURL: "http://localhost:5000",
-    headers:{
-        "Content-Type":"application/json",
+});
+
+apiClient.interceptors.request.use((config) => {
+    const token = localStorage.getItem("access_token");
+    if (token) {
+        config.headers.Authorization = `Bearer ${token}`;
     }
-})
+return config;
+});
 
 export default apiClient;
