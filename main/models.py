@@ -65,18 +65,14 @@ class Places(db.Model):                                                         
     closed_days = db.Column(db.String(200), nullable=True)                                                                                                          # 휴무일
     operating_hours = db.Column(db.String(200), nullable=False)                                                                                                     # 운영시간          # 필수입력
     admission_type = db.Column(db.String(10), nullable=False)                                                                                                       # 입장료 유무       # 필수입력      # enum 값
-    admission_detail = db.Column(db.Text, nullable=True)                                                                                                            # 입장료 상세
     parking_available = db.Column(db.String(10), nullable=False)                                                                                                    # 주차장 유무       # 필수입력      # enum 값
-    parking_capacity = db.Column(db.String(120), nullable=True)                                                                                                     # 주차장 수용 규모
-    parking_fee = db.Column(db.String(120), nullable=True)                                                                                                          # 주차장 요금
+    parking_fee = db.Column(db.String(120), nullable=True)                                                                                                          # 주차장 요금       # 무료, 유료
     requires_reservation = db.Column(db.String(10), nullable=False)                                                                                                 # 예약 필요 여부    # 필수입력      # enum 값
     amenities = db.Column(db.Text, nullable=True)                                                                                                                   # 부대시설
     description = db.Column(db.Text, nullable=False)                                                                                                                # 소개글           # 필수입력
     image_urls = db.Column(db.Text, nullable=False)                                                                                                                 # 이미지           # 필수입력
     latitude = db.Column(db.Float, nullable=False)                                                                                                                  # 위도            # 필수입력
     longitude = db.Column(db.Float, nullable=False)                                                                                                                 # 경도            # 필수입력
-    public_transportation = db.Column(db.Text, nullable=True)                                                                                                       # 대중교통
-    local_currency_available = db.Column(db.String(10), nullable=False)                                                                                             # 지역화폐          # 필수입력      # enum 값
     created_at = db.Column(db.DateTime(timezone=True), nullable=False, default=lambda: datetime.now(timezone.utc))                                                  # 생성시간          # 자동입력      # 기본값있음
     updated_at = db.Column(db.DateTime(timezone=True), nullable=False, default=lambda: datetime.now(timezone.utc), onupdate=lambda: datetime.now(timezone.utc))     # 수정시간          # 자동입력      # 기본값있음
 
