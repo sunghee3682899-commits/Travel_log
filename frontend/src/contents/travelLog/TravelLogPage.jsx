@@ -47,9 +47,9 @@ const TravelLogPage = () => {
                         </thead>
                         <tbody>
                             {reviews.map(item => (
-                            <tr key={item.id} onClick={() => navigate(`/review/${item.id}`)}>
+                            <tr key={item.id} onClick={() => navigate(`/travelLog/${item.id}`)}>
                                 <td className="mo-none">{item.id}</td>
-                                <td className="title"><Link to="review">{item.title}</Link></td>
+                                <td className="title"><Link to="travelLog">{item.title}</Link></td>
                                 <td className="mo-none">{item.nickname}</td>
                                 <td>{item.date}</td>
                                 <td>{item.like}</td>
