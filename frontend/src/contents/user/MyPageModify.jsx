@@ -1,35 +1,64 @@
-    import React from 'react'
-    import "./MyPageModify.css"
-    const MyPageModify = () => {
+import React, { useEffect, useState } from 'react'
+import "./MyPageModify.css"
+import { mypageMd } from '../../API/user'
+import { Link, useNavigate } from 'react-router-dom'
+
+
+const MyPageModify = () => {
+    const [user, setUser] = useState({
+        userid: "",
+        username:"",
+        email:"",
+        phone:"",
+    })
+    const navigate = useNavigate();
+    const cancel = ()=>{
+        const ok = window.confirm("정말 취소 하시겠습니까?\n 작성한 내용은 저장되지 않습니다.")
+
+        if (ok) {
+            navigate("/")
+        }
+    }
+
+    useEffect(() => {
+        mypageMd()
+        .then(res => {
+            console.log("응답데이터", res.data);
+            setUser(res.data)
+        })
+        .catch(err => console.error(err))
+    },[])
+
+    const handleChange = (e) => {
+        // const {name, value}
+    }
 
     return (
         <>
-    <div class="mypage-modify-profile">
-        <div class="mypage-modify-profile-inner">
-        <div class="mypage-modify-profile-img"></div>
-        <p class="mypage-profile-text"><a href="#">프로필 이미지 변경</a></p>
-        </div>
-    </div>
+            <div className="mypage-modify-profile">
+                <div className="mypage-modify-profile-inner">
+                    <img src={`http://localhost:5000${user?.user_img}`}className="mypage-modify-profile-img"></img>
+                    <p className="mypage-profile-text"><a href="#">프로필 이미지 변경</a></p>
+                </div>
+            </div>
 
-    <div class="mypage-modify-wrap">
-        <form class="mypage-modify-form">
+            <div className="mypage-modify-wrap">
+                <form className="mypage-modify-form">
 
-        <input type="text" placeholder="아이디" />
-        <input type="text" placeholder="닉네임" />
-        <input type="text" placeholder="출생년도" />
-        <input type="text" placeholder="성별" />
-        <input type="email" placeholder="email" />
-        <input type="text" placeholder="전화번호" />
+                    <input type="text" value={user.userid} onChange={(e) => setUser({...user,userid: ""})}/>
+                    <input type="text" placeholder={user.username} />
+                    <input type="email" placeholder={user.email} />
+                    <input type="text" placeholder={user.phone} />
 
-        <div class="mypage-btn-group">
-            <button type="button">수정</button>
-            <button type="submit">취소</button>
-            <button type="button">삭제</button>
-        </div>
-        </form>
-    </div>
-    </>
+                    <div className="mypage-btn-group">
+                        <button type="submit">수정</button>
+                        <button type="button" onClick={cancel}>취소</button>
+                        <button type="submit">삭제</button>
+                    </div>
+                </form>
+            </div>
+        </>
     )
-    }
+}
 
-    export default MyPageModify
+export default MyPageModify

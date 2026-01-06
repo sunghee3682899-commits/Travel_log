@@ -7,3 +7,11 @@ export const mypage = () => {
         }
     })
 }
+
+export const mypageMd = () =>{
+    return apiClient.get("/api/mypagemodify",{
+        headers:{
+            Authorization: `Beraer ${localStorage.getItem("accessToken")}`
+        }
+    })
+}

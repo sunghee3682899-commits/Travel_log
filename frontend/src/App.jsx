@@ -40,7 +40,7 @@ function App() {
       <Header />
 
       <Routes>
-        <Route path="/main" element={<Home />} />
+        <Route path="/" element={<Home />} />
         <Route path="/places/:type" element={<PlaceListPage key={routerLocation.pathname} />} />
         <Route path="/Places/detail/:id" element={<PlaceDetailPage />} />
 

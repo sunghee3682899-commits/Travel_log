@@ -39,7 +39,7 @@ const Header = () => {
             <div className="header-wrap">
                 <div className="header-inner">
                     <h1 className="logo-wrap">
-                        <Link to="/main" className="logo" aria-label="홈">
+                        <Link to="/" className="logo" aria-label="홈">
                         <img src="/images/common/logo.png" alt="Travel Log - 여행로그 로고" />
                         </Link>
                     </h1>
@@ -108,7 +108,7 @@ const Header = () => {
                                                 <p>{user.username}</p>
                                             </li>
                                             <li>
-                                                <Link to="/main" onClick={logout}>로그아웃</Link>
+                                                <Link to="/" onClick={logout}>로그아웃</Link>
                                             </li>
                                             <li>
                                                 <Link to="/MyPage" onClick={closeAll}>마이페이지</Link>

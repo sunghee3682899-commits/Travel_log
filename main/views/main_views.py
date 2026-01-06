@@ -7,7 +7,7 @@ import json
 
 bp = Blueprint('main', __name__)
 
-@bp.route("/main", methods=["GET"])
+@bp.route("/", methods=["GET"])
 def main():
     def get_random_place(place_type, limt):
         places = (

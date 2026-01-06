@@ -1,7 +1,7 @@
 import apiClient from "./axios";
 
 export const getHomePlace = (type) => {
-    return apiClient.get("/api/main",{
+    return apiClient.get("/api/",{
         params: {type}
     })
 }
