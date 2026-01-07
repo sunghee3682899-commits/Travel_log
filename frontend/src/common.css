@@ -316,3 +316,100 @@ footer {}
     .board-wrap .pagination button {font-size: 12px;}
     .board-wrap .pagination button.arrow {width: 22px; height: 22px;}
 }
+
+/* board Insert - 리뷰, 나의 여행로그 */
+
+.board__form-wrap {}
+.board__form-wrap .board__form-inner {width: 100%; max-width: 1250px; margin: 0 auto; box-sizing: border-box;}
+.board__form-wrap form {width: 100%;}
+
+.board__form-header {position: relative; height: 250px; background-image: url('/public/images/review/reviewwrite.png'); background-repeat: no-repeat; background-position: center; background-size: 100%;}
+.board__form-header .img-wrap {position: absolute; bottom: -90px; left: 50%; width: 180px; border: 1px solid #dbdbdb; border-radius: 100%; background-color: #fff; aspect-ratio: 1 / 1; transform: translateX(-50%);}
+.board__form-header .img-wrap img {width: 100%; height: 100%; object-fit: cover;}
+
+.board__form-content {width: 100%; margin: 140px 0 60px;}
+.board__form-section {margin: 0 0 80px;}
+.board__form-section label {display: block; margin: 0 0 30px; font-weight: 500; font-size: 20px;}
+.board__form-section input {width: 100%; height: 50px; border: 1px solid #dbdbdb; border-radius: 7px; padding: 0 14px; font-size: 14px; box-sizing: border-box;}
+.board__form-section textarea {width: 100%; min-height: 220px; border: 1px solid #dbdbdb; border-radius: 7px; padding: 14px; font-size: 14px; box-sizing: border-box; resize: none;}
+
+.board__form-section .photo-wrap {display: flex; gap: 16px;}
+.board__form-section .photo-wrap .photo-item {display: flex; flex-direction: column; align-items: center; justify-content: center; width: calc( (100% - 64px) / 5 ); border: 1px solid #dbdbdb; border-radius: 7px; box-sizing: border-box; aspect-ratio: 3 / 4;}
+.board__form-section .photo-wrap .photo__upload-wrap button {width: 100%; height: 100%; font-size: 0;}
+.board__form-section .photo-wrap .photo__upload-wrap img {width: 20px; height: 20px; color: #666; margin: 0 0 6px;}    
+.board__form-section .photo-wrap .photo__upload-wrap p{font-size: 14px; color: #888;}
+.board__form-section .photo__preview-wrap {position: relative;}
+.board__form-section .photo__preview-wrap img {width: 100%; height: 100%; object-fit: cover;}
+.board__form-section .photo__preview-wrap .photo__remove {display: inline-flex; align-items: center; justify-content: center; position: absolute; top: 8px; right: 8px; width: 20px; height: 20px; border-radius: 100%; background-color: #fff; font-weight: bold; font-size: 14px; line-height: 0;}
+
+.board__form-wrap .btn-wrap {display: flex; justify-content: center; gap: 15px; margin: 60px 0 0;}
+.board__form-wrap .btn-wrap .btn {display: inline-flex; align-items: center; justify-content: center; width: 120px; height: 44px; border-radius: 7px; font-size: 14px; cursor: pointer;}
+.board__form-wrap .btn-cancel {background: #fff; border: 1px solid #ccc; color: #333;}
+.board__form-wrap .btn-submit {background: #0b2a63; border: none; color: #fff;}
+
+@media screen and (max-width: 1250px) {
+    .board__form-wrap .board__form-inner {padding: 0 35px;}
+
+    .board__form-header {height: 200px;}
+    .board__form-header .img-wrap {bottom: -70px; width: 150px;}
+
+    .board__form-content{margin: 110px 0 50px;}
+    .board__form-section {margin: 0 0 60px;}
+    .board__form-section label {margin: 0 0 25px; font-size: 19px;}
+    .board__form-section input {height: 45px; border-radius: 6px; padding: 0 12px;}
+    .board__form-section textarea {min-height: 200px; border-radius: 6px; padding: 12px;}
+
+    .board__form-section .photo-wrap {gap: 14px;}
+    .board__form-section .photo-wrap .photo-item {width: calc( (100% - 56px) / 5 ); border-radius: 6px;}
+
+    .board__form-wrap .btn-wrap {gap: 14px; margin: 50px 0 0;}
+    .board__form-wrap .btn-wrap .btn {width: 110px; height: 40px; border-radius: 6px;}
+}
+
+@media screen and (max-width: 1024px) {
+    .board__form-wrap .board__form-inner {padding: 0 30px;}
+
+    .board__form-header {height: 150px;}
+    .board__form-header .img-wrap {bottom: -60px; width: 120px;}
+
+    .board__form-content{margin: 90px 0 40px;}
+    .board__form-section {margin: 0 0 40px;}
+    .board__form-section label {margin: 0 0 20px; font-size: 18px;}
+    .board__form-section input {height: 40px; border-radius: 5px; padding: 0 10px;}
+    .board__form-section textarea {min-height: 150px; border-radius: 5px; padding: 12px 10px;}
+
+    .board__form-section .photo-wrap {gap: 12px;}
+    .board__form-section .photo-wrap .photo-item {width: calc( (100% - 48px) / 5 ); border-radius: 5px;}
+
+    .board__form-wrap .btn-wrap {gap: 10px; margin: 40px 0 0;}
+    .board__form-wrap .btn-wrap .btn {width: 100px; height: 35px; border-radius: 5px;}
+    
+}
+
+@media only screen and (max-width: 768px) {
+    .board__form-wrap .board__form-inner {padding: 0 15px;}
+
+    .board__form-header {height: 100px;}
+    .board__form-header .img-wrap {bottom: -40px; width: 90px;}
+
+    .board__form-content{margin: 70px 0 30px;}
+    .board__form-section {margin: 0 0 30px;}
+    .board__form-section label {margin: 0 0 15px; font-size: 16px;}
+    .board__form-section input {height: 35px; border-radius: 4px;}
+    .board__form-section textarea {min-height: 100px; border-radius: 4px;}
+
+    .board__form-section .photo-wrap {gap: 10px;}
+    .board__form-section .photo-wrap .photo-item {width: calc( (100% - 30px) / 4 ); border-radius: 5px;}
+    .board__form-section .photo__preview-wrap .photo__remove {top: 6px; right: 6px; width: 15px; height: 15px; font-size: 10px;}
+
+    .board__form-wrap .btn-wrap {gap: 8px; margin: 30px 0 0;}
+
+}
+
+@media only screen and (max-width: 480px) {
+    .board__form-section .photo-wrap .photo-item {width: calc( (100% - 20px) / 3 ); border-radius: 4px;}
+
+    .board__form-wrap .btn-wrap {gap: 6px; margin: 20px 0 0;}
+    .board__form-wrap .btn-wrap .btn {width: calc( (100% - 8px) / 2 ); height: 30px; border-radius: 4px;}
+    
+}

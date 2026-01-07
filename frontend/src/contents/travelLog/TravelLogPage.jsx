@@ -4,17 +4,16 @@ import { useNavigate } from 'react-router-dom';
 import Pagination from '../../components/common/Pagination';
 
 const TravelLogPage = () => {
-  const navigate = useNavigate();
+    const navigate = useNavigate();
+    const reviews = [
+        { id: 27, title: '게시글 제목', nickname: '글쓴이', date: '2025.12.11', like: 125 },
+        { id: 26, title: '게시글 제목', nickname: '글쓴이', date: '2025.12.11', like: 125 },
+    ];
+    const [page, setPage] = useState(1);
 
-  const reviews = [
-    { id: 25, title: '게시글 제목', nickname: '글쓴이', date: '2025.12.11', like: 125 },
-    { id: 24, title: '게시글 제목', nickname: '글쓴이', date: '2025.12.11', like: 125 },
-  ];
+    const totalPages = 23; // 서버에서 받은 전체 페이지 수
 
-  const [page, setPage] = useState(1);
-  const totalPages = 23;
-
-  return (
+    return (
         <div className="board-wrap">
             <div className="board-header" style={{ backgroundImage: `url(${process.env.PUBLIC_URL}/images/review/mytravellogmain.png)` }}>
                 <h3 className='title'>Travellog</h3>
@@ -47,9 +46,9 @@ const TravelLogPage = () => {
                         </thead>
                         <tbody>
                             {reviews.map(item => (
-                            <tr key={item.id} onClick={() => navigate(`/travelLog/${item.id}`)}>
+                            <tr key={item.id} onClick={() => navigate(`/review/${item.id}`)}>
                                 <td className="mo-none">{item.id}</td>
-                                <td className="title"><Link to="travelLog">{item.title}</Link></td>
+                                <td className="title"><Link to="review">{item.title}</Link></td>
                                 <td className="mo-none">{item.nickname}</td>
                                 <td>{item.date}</td>
                                 <td>{item.like}</td>
@@ -66,12 +65,12 @@ const TravelLogPage = () => {
                     <div className="btn-wrap">
                         <button
                             className="btn-write"
-                            onClick={() => navigate('/travelLog/write')}
+                            onClick={() => navigate('/review/write')}
                             >
                                 글 작성하기
                         </button>
                     </div>
-                    
+
                     <Pagination
                         page={page}
                         totalPages={totalPages}
@@ -80,7 +79,6 @@ const TravelLogPage = () => {
                 </div>
             </div>
         </div>
-  );
+    );
 };
-
 export default TravelLogPage;
