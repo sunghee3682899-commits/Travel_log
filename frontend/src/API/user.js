@@ -11,7 +11,15 @@ export const mypage = () => {
 export const mypageMd = () =>{
     return apiClient.get("/api/mypagemodify",{
         headers:{
-            Authorization: `Beraer ${localStorage.getItem("accessToken")}`
+            Authorization: `Berer ${localStorage.getItem("accessToken")}`
         }
     })
+}
+
+export const mypageUpdate = (formData) => {
+    apiClient.put("/api/mypagemodify", formData)
+}
+
+export const mypageDelete = () =>{
+    apiClient.delete("api/mypagemodify")
 }

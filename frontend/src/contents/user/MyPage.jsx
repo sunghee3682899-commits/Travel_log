@@ -49,7 +49,7 @@ const MyPage = () => {
       <div className="mypage-inner">
         <section className="profile-wrap">
           <div className="profile-inner">
-            <img className="img-wrap" src={`http://localhost:5000${user?.user_img}`}/>
+            <img className="img-wrap" src={`http://localhost:5000/static/${user?.user_img}`}/>
             <Link to="/MyPageModify" className="edit-profile">회원정보 수정</Link>
           </div>
           <div className="text-wrap">

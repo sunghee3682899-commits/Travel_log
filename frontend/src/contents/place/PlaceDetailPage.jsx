@@ -1,23 +1,26 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { getPlaceId } from "../../API/places";
 import WishToggleButton from '../../components/common/WishToggleButton';
 import "./PlaceDetailPage.css";
 
 const PlaceDetailPage = () => {
     const { id } = useParams()
-    const [place, setPlaceId] = useState(null)
+    const [place, setPlace] = useState(null)
+    const [recommended, setRecommended] = useState([])
     const [mainImage, setMainImage] = useState(null);
     const [subImages, setSubImages] = useState([]);
-    const [slideIndex, setSlideIndex] = useState(0);
     const [likes, setLikes] = useState([false, false, false]);
+    const navigate = useNavigate();
+
 
 
     useEffect(() => {
         getPlaceId(id)
             .then(res => {
-                console.log("응답데이터", res.data);
-                setPlaceId(res.data)
+                console.log("응답데이터", res.data)
+                setPlace(res.data.place)
+                setRecommended(res.data.recommended)
             })
             .catch(err => console.error(err))
     }, [id])
@@ -149,41 +152,39 @@ const PlaceDetailPage = () => {
                         <div className="recommended-inner">
                             <h1 className="title">RECOMMENDED</h1>
 
-                            {["성산일출봉", "제주 4.3 평화 공원", "카멜리아 힐"].map(
-                                (tag, i) => (
-                                    <div className="item" key={i}>
+                            {recommended.map(
+                                (item) => (
+                                    <div className="item" key={item.id}>
                                         <div className="img-wrap">
                                             <img
-                                                src="/images/placedetail/snoopt1.jpg"
-                                                alt=""
+                                                src={IMAGE_BASE_URL + item.image[0]}
+                                                alt={item.name}
                                             />
                                         </div>
-
-                                        <div className="item-content">
-                                            <h2 className="item-title">Jeju</h2>
+                                        <div className="item-content" >
+                                            <h2 className="item-title">{item.name}</h2>
                                             <div className="item-details">
                                                 <p>
                                                     <span className="tit">주소 :</span>
                                                     &nbsp;
-                                                    <span className="txt">제주특별자치도 제주시 구좌읍 금백조로 930</span>
+                                                    <span className="txt">{item.address}</span>
                                                 </p>
                                                 <p>
                                                     <span className="tit">휴일 :</span>
                                                     &nbsp;
-                                                    <span className="txt">연중무휴</span>
+                                                    <span className="txt">{item.closed_days}</span>
                                                 </p>
                                                 <p>
                                                     <span className="tit">이용가능시설 :</span>
                                                     &nbsp;
-                                                    <span className="txt">카드 하우스 / 야외카드</span>
+                                                    <span className="txt">{item.amenities}</span>
                                                 </p>
                                             </div>
                                         </div>
 
                                         <div className="item-actions">
-                                            <span className="item-tag">{tag}</span>
                                             <WishToggleButton className="heart-btn" />
-                                            <button className="detail-btn">
+                                            <button className="detail-btn" onClick={() => navigate(`/places/detail/${item.id}`)}>
                                                 상세 정보 보러가기
                                             </button>
                                         </div>
