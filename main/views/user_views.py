@@ -22,6 +22,8 @@ def mypage():
             "user_img": f"/static/user_img/{user.profile_image}",
         }), 200
 
+ALLOWED_EXT = {'png', 'jpg', 'jpeg', 'gif'}
+
 @bp.route("/mypagemodify", methods=["POST","GET"])
 @jwt_required()
 def mypagemodify():
