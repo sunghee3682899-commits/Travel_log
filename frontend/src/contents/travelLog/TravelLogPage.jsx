@@ -6,19 +6,30 @@ import { getTravellogList } from '../../API/mytravellog';
 
 const TravelLogPage = () => {
     const navigate = useNavigate();
-    const [rlist, setRlist] = useState([])
+    const [rlist, setRlist] = useState([]);
     const [page, setPage] = useState(1);
-    const [totalPages, setTotalPages] = useState(1)
-    const [keyword, setKeyword] = useState("")
+    const [totalPages, setTotalPages] = useState(1);
+    const [keyword, setKeyword] = useState("");
+    const [isMobile, setIsMobile] = useState(false);
 
     useEffect(() => {
         getTravellogList(page, keyword)
             .then(res => {
-                console.log("리뷰리스트", res.data)
-                setRlist(res.data.mytravellogs)
-                setTotalPages(res.data.totalPages)
+                console.log("나의여행로그리스트", res.data);
+                setRlist(res.data.mytravellogs);
+                setTotalPages(res.data.totalPages);
             })
-            .catch(err => console.error(err))
+            .catch(err => console.error(err));
+        
+
+        const checkMobile = () => {
+            setIsMobile(window.innerWidth <= 768);
+        };
+
+        checkMobile(); // 최초 1회
+        window.addEventListener("resize", checkMobile);
+
+        return () => window.removeEventListener("resize", checkMobile);
     }, [page, keyword])
 
 
@@ -69,11 +80,16 @@ const TravelLogPage = () => {
                                 <td>{mytravellog.like_count}</td>
                             </tr>
                             ))}
-                            {Array.from({ length: 0 }).map((_, i) => (
-                            <tr key={`empty-${i}`}>
-                                <td colSpan={ 5 } style={{'text-align' : 'center'}}>등록된 리뷰가 없습니다.</td>
-                            </tr>
-                            ))}
+                            {rlist.length === 0 && (
+                                <tr>
+                                    <td
+                                        colSpan={isMobile ? 3 : 5}
+                                        style={{ textAlign: "center" }}
+                                    >
+                                        검색 결과가 없습니다.
+                                    </td>
+                                </tr>
+                            )}
                         </tbody>
                     </table>
 
