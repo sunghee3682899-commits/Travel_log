@@ -50,7 +50,7 @@ def reviewList():
             "no": offset + idx,
             "id": review.id,
             "title": review.title,
-            "created_at": kst_time.strftime("%Y년 %m월 %d일 %H:%M"),
+            "created_at": kst_time.strftime("%Y년 %m월 %d일"),
             "like_count": review.like_count,
             "user": {
                 "id": review.user.id,
@@ -87,7 +87,7 @@ def reviewDetail(review_id):
 
         "like_count": review.like_count,
         "liked": liked,
-        "created_at": kst_time.strftime("%Y년 %m월 %d일 %H:%M"),
+        "created_at": kst_time.strftime("%Y년 %m월 %d일 "),
 
         "user": {
             "id": review.user.id,

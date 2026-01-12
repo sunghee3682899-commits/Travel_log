@@ -56,6 +56,7 @@ const PlaceDetailPage = () => {
             <div className="place-inner">
                 <div className="top-wrap">
                     <img src={IMAGE_BASE_URL + place.image[0]} alt="main" className="main__img" />
+                    <WishToggleButton className="heart-btn" />
                 </div>
                 <div className="content-wrap">
                     <h1 className="title">{place.city}</h1>
