@@ -210,7 +210,7 @@ footer {}
 .col-no {width: 7%;}
 .col-title {width: auto;}
 .col-nick {width: 8%;}
-.col-date {width: 10%;}
+.col-date {width: 12%;}
 .col-like {width: 7%;}
 
 .board-wrap .board__table tr {border-bottom: 1px solid #ddd;}
