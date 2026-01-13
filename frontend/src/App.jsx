@@ -23,16 +23,10 @@ import Footer from './components/common/Footer'
 import ScrollHandler from './components/common/ScrollHandler'
 import MyPageModify from './contents/user/MyPageModify'
 import ChatBot from './contents/chatbot/Chatbot'
+import NotFound from './contents/notfound'
 
 function App() {
-  const [message, setMessage] = useState('')
 
-  // useEffect(() => {
-  //   fetch('http://localhost:5000/')
-  //     .then(res => res.json())
-  //     .then(data => setMessage(data.message))
-  //     .catch(() => {})
-  // }, [])
   const routerLocation = useLocation();
   const ScrollToTop = () => {
     const { pathname } = useLocation();
@@ -57,7 +51,6 @@ function App() {
         <Route path="/Places/detail/:id" element={<PlaceDetailPage />} />
 
         <Route path="/review" element={<ReviewListPage />} />
-        {/* <Route path="/review/detail" element={<ReviewDetailPage />} /> */}
         <Route path="/review/write" element={<ReviewWritePage />} />
         <Route path="/review/:id" element={<ReviewDetailPage />} />
 
@@ -70,6 +63,7 @@ function App() {
         <Route path="/MyPage" element={<MyPage />} />
         <Route path="/MyPageModify" element={<MyPageModify />} />
         <Route path="/chatbot" element={<ChatBot />} />
+        <Route path="/*" element={<NotFound />} />
       </Routes>
 
       <TopButton />
